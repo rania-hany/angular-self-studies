@@ -1,0 +1,16 @@
+<div class="row">
+<h1 class="col-sm-10">Recent Posts</h1>
+<button class="btn btn-info pull-right post-new col-sm-2" [ngClass]="addingNewPost? 'btn-danger': 'btn-info'"
+    (click)="addingNewPost = !addingNewPost">
+    {{addingNewPost? 'Cancel': 'Write Post'}}
+</button>
+</div>
+
+<app-new-post *ngIf="addingNewPost" (submitPost)="addNewPost($event)"></app-new-post>
+
+<div class="posts">
+
+    <app-post *ngFor="let post of (posts| async).posts" [postInfo]="post" (deletePost)="deletePost($event)"></app-post>
+    <!-- <app-post *ngFor="let post of posts" [postInfo]="post"></app-post> -->
+
+</div>

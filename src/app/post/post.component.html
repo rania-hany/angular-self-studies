@@ -1,0 +1,9 @@
+<div class="post-wrapper">
+    <button class="btn btn-danger" style="float:right" (click)="onDelete()">X</button>
+    <h4 class="author">{{post.userId}}</h4>
+
+    <div class="post"  style="clear:both">
+        <div class="post-title"><strong>{{post.title}}</strong></div>
+        <div class="post-body" [innerHTML]="post.body"></div>
+    </div>
+</div>
